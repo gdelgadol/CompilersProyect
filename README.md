@@ -1,4 +1,4 @@
-# LaPyX
+# **LaPyX**
 
 Este proyecto permite convertir expresiones matemáticas escritas en LaTeX a expresiones equivalentes en Python. Utiliza **PLY (Python Lex-Yacc)** para analizar y transformar las ecuaciones.
 
