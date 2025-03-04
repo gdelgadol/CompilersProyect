@@ -78,13 +78,29 @@ test_cases = [
 ]
 
 def run_tests():
+    passed = []
+    failed = []
+    
     print("Running Test Cases...\n")
     for latex, expected in test_cases:
-        result = parse_latex_to_python(latex)
-        print(f"LaTeX: {latex}")
-        print(f"Python: {result}")
-        print(f"Expected: {expected}")
-        print("-" * 50)
+        try:
+            result = parse_latex_to_python(latex)
+            if result == expected:
+                passed.append((latex, result))
+            else:
+                failed.append((latex, result, expected))
+        except Exception as e:
+            failed.append((latex, str(e), expected))
+    
+    print("\nPassed Tests:")
+    for latex, result in passed:
+        print(f"✔ {latex} => {result}")
+    
+    print("\nFailed Tests:")
+    for latex, result, expected in failed:
+        print(f"✘ {latex} => {result} (Expected: {expected})")
+    
+    print(f"\nSummary: {len(passed)} Passed, {len(failed)} Failed")
     
 if __name__ == "__main__":
     run_tests()

@@ -2,7 +2,6 @@ import ply.yacc as yacc
 import math
 from lex import tokens
 
-# Operator precedence to resolve conflicts
 precedence = (
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE'),
@@ -10,7 +9,6 @@ precedence = (
     ('right', 'UMINUS'),
 )
 
-# Define parsing rules
 def p_expression_binop(p):
     """expression : expression PLUS expression
                   | expression MINUS expression
@@ -38,6 +36,11 @@ def p_expression_function(p):
                   | LOG grouping
                   | EXP grouping"""
     p[0] = f"math.{p[1][1:]}({p[2]})"
+
+def p_expression_pi(p):
+    "expression : PI"
+    p[0] = "math.pi"
+
 
 def p_grouping(p):
     """grouping : LBRACE expression RBRACE

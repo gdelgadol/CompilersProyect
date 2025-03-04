@@ -3,9 +3,11 @@ import ply.lex as lex
 # List of token names
 tokens = [
     'NAME', 'NUMBER', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'POWER',
-    'LPAREN', 'RPAREN', 'LBRACE', 'RBRACE', 'EQUALS', 'FRACTION', 
-    'SQRT', 'SIN', 'COS', 'TAN', 'LOG', 'EXP', 'SEP'
+    'LPAREN', 'RPAREN', 'LBRACE', 'RBRACE', 'LBRACK', 'RBRACK', 
+    'EQUALS', 'FRACTION', 'SQRT', 'SIN', 'COS', 'TAN', 'LOG', 'EXP',
+    'SEP', 'PI'
 ]
+
 
 # Regular expressions for simple tokens
 t_PLUS = r'\+'
@@ -25,10 +27,10 @@ t_COS = r'\\cos'
 t_TAN = r'\\tan'
 t_LOG = r'\\log'
 t_EXP = r'\\exp'
+t_PI = r'\\pi'
 t_SEP = r','
 t_ignore = ' \t'
 
-# Ignore \left and \right (they don't affect parsing)
 def t_LEFT(t):
     r'\\left'
     pass  # Ignore
