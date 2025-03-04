@@ -46,9 +46,9 @@ Salida esperada:
 ```
 
 ## Pruebas
-Ejecuta el archivo `test_cases.py` para probar múltiples ecuaciones:
+Ejecuta el archivo `test.py` para probar múltiples ecuaciones:
 ```sh
-python test_cases.py
+python test.py
 ```
 
 ## Notas
