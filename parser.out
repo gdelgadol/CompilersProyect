@@ -1,0 +1,884 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    EQUALS
+    SEP
+
+Grammar
+
+Rule 0     S' -> expression
+Rule 1     expression -> expression PLUS expression
+Rule 2     expression -> expression MINUS expression
+Rule 3     expression -> expression TIMES expression
+Rule 4     expression -> expression DIVIDE expression
+Rule 5     expression -> expression POWER expression
+Rule 6     expression -> FRACTION LBRACE expression RBRACE LBRACE expression RBRACE
+Rule 7     expression -> SQRT grouping
+Rule 8     expression -> SIN grouping
+Rule 9     expression -> COS grouping
+Rule 10    expression -> TAN grouping
+Rule 11    expression -> LOG grouping
+Rule 12    expression -> EXP grouping
+Rule 13    grouping -> LBRACE expression RBRACE
+Rule 14    grouping -> LPAREN expression RPAREN
+Rule 15    expression -> NUMBER
+Rule 16    expression -> NAME
+Rule 17    expression -> LPAREN expression RPAREN
+
+Terminals, with rules where they appear
+
+COS                  : 9
+DIVIDE               : 4
+EQUALS               : 
+EXP                  : 12
+FRACTION             : 6
+LBRACE               : 6 6 13
+LOG                  : 11
+LPAREN               : 14 17
+MINUS                : 2
+NAME                 : 16
+NUMBER               : 15
+PLUS                 : 1
+POWER                : 5
+RBRACE               : 6 6 13
+RPAREN               : 14 17
+SEP                  : 
+SIN                  : 8
+SQRT                 : 7
+TAN                  : 10
+TIMES                : 3
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 1 1 2 2 3 3 4 4 5 5 6 6 13 14 17 0
+grouping             : 7 8 9 10 11 12
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression POWER expression
+    (6) expression -> . FRACTION LBRACE expression RBRACE LBRACE expression RBRACE
+    (7) expression -> . SQRT grouping
+    (8) expression -> . SIN grouping
+    (9) expression -> . COS grouping
+    (10) expression -> . TAN grouping
+    (11) expression -> . LOG grouping
+    (12) expression -> . EXP grouping
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . LPAREN expression RPAREN
+
+    FRACTION        shift and go to state 2
+    SQRT            shift and go to state 3
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    EXP             shift and go to state 8
+    NUMBER          shift and go to state 9
+    NAME            shift and go to state 10
+    LPAREN          shift and go to state 11
+
+    expression                     shift and go to state 1
+
+state 1
+
+    (0) S' -> expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . POWER expression
+
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    POWER           shift and go to state 16
+
+
+state 2
+
+    (6) expression -> FRACTION . LBRACE expression RBRACE LBRACE expression RBRACE
+
+    LBRACE          shift and go to state 17
+
+
+state 3
+
+    (7) expression -> SQRT . grouping
+    (13) grouping -> . LBRACE expression RBRACE
+    (14) grouping -> . LPAREN expression RPAREN
+
+    LBRACE          shift and go to state 19
+    LPAREN          shift and go to state 20
+
+    grouping                       shift and go to state 18
+
+state 4
+
+    (8) expression -> SIN . grouping
+    (13) grouping -> . LBRACE expression RBRACE
+    (14) grouping -> . LPAREN expression RPAREN
+
+    LBRACE          shift and go to state 19
+    LPAREN          shift and go to state 20
+
+    grouping                       shift and go to state 21
+
+state 5
+
+    (9) expression -> COS . grouping
+    (13) grouping -> . LBRACE expression RBRACE
+    (14) grouping -> . LPAREN expression RPAREN
+
+    LBRACE          shift and go to state 19
+    LPAREN          shift and go to state 20
+
+    grouping                       shift and go to state 22
+
+state 6
+
+    (10) expression -> TAN . grouping
+    (13) grouping -> . LBRACE expression RBRACE
+    (14) grouping -> . LPAREN expression RPAREN
+
+    LBRACE          shift and go to state 19
+    LPAREN          shift and go to state 20
+
+    grouping                       shift and go to state 23
+
+state 7
+
+    (11) expression -> LOG . grouping
+    (13) grouping -> . LBRACE expression RBRACE
+    (14) grouping -> . LPAREN expression RPAREN
+
+    LBRACE          shift and go to state 19
+    LPAREN          shift and go to state 20
+
+    grouping                       shift and go to state 24
+
+state 8
+
+    (12) expression -> EXP . grouping
+    (13) grouping -> . LBRACE expression RBRACE
+    (14) grouping -> . LPAREN expression RPAREN
+
+    LBRACE          shift and go to state 19
+    LPAREN          shift and go to state 20
+
+    grouping                       shift and go to state 25
+
+state 9
+
+    (15) expression -> NUMBER .
+
+    PLUS            reduce using rule 15 (expression -> NUMBER .)
+    MINUS           reduce using rule 15 (expression -> NUMBER .)
+    TIMES           reduce using rule 15 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 15 (expression -> NUMBER .)
+    POWER           reduce using rule 15 (expression -> NUMBER .)
+    $end            reduce using rule 15 (expression -> NUMBER .)
+    RPAREN          reduce using rule 15 (expression -> NUMBER .)
+    RBRACE          reduce using rule 15 (expression -> NUMBER .)
+
+
+state 10
+
+    (16) expression -> NAME .
+
+    PLUS            reduce using rule 16 (expression -> NAME .)
+    MINUS           reduce using rule 16 (expression -> NAME .)
+    TIMES           reduce using rule 16 (expression -> NAME .)
+    DIVIDE          reduce using rule 16 (expression -> NAME .)
+    POWER           reduce using rule 16 (expression -> NAME .)
+    $end            reduce using rule 16 (expression -> NAME .)
+    RPAREN          reduce using rule 16 (expression -> NAME .)
+    RBRACE          reduce using rule 16 (expression -> NAME .)
+
+
+state 11
+
+    (17) expression -> LPAREN . expression RPAREN
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression POWER expression
+    (6) expression -> . FRACTION LBRACE expression RBRACE LBRACE expression RBRACE
+    (7) expression -> . SQRT grouping
+    (8) expression -> . SIN grouping
+    (9) expression -> . COS grouping
+    (10) expression -> . TAN grouping
+    (11) expression -> . LOG grouping
+    (12) expression -> . EXP grouping
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . LPAREN expression RPAREN
+
+    FRACTION        shift and go to state 2
+    SQRT            shift and go to state 3
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    EXP             shift and go to state 8
+    NUMBER          shift and go to state 9
+    NAME            shift and go to state 10
+    LPAREN          shift and go to state 11
+
+    expression                     shift and go to state 26
+
+state 12
+
+    (1) expression -> expression PLUS . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression POWER expression
+    (6) expression -> . FRACTION LBRACE expression RBRACE LBRACE expression RBRACE
+    (7) expression -> . SQRT grouping
+    (8) expression -> . SIN grouping
+    (9) expression -> . COS grouping
+    (10) expression -> . TAN grouping
+    (11) expression -> . LOG grouping
+    (12) expression -> . EXP grouping
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . LPAREN expression RPAREN
+
+    FRACTION        shift and go to state 2
+    SQRT            shift and go to state 3
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    EXP             shift and go to state 8
+    NUMBER          shift and go to state 9
+    NAME            shift and go to state 10
+    LPAREN          shift and go to state 11
+
+    expression                     shift and go to state 27
+
+state 13
+
+    (2) expression -> expression MINUS . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression POWER expression
+    (6) expression -> . FRACTION LBRACE expression RBRACE LBRACE expression RBRACE
+    (7) expression -> . SQRT grouping
+    (8) expression -> . SIN grouping
+    (9) expression -> . COS grouping
+    (10) expression -> . TAN grouping
+    (11) expression -> . LOG grouping
+    (12) expression -> . EXP grouping
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . LPAREN expression RPAREN
+
+    FRACTION        shift and go to state 2
+    SQRT            shift and go to state 3
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    EXP             shift and go to state 8
+    NUMBER          shift and go to state 9
+    NAME            shift and go to state 10
+    LPAREN          shift and go to state 11
+
+    expression                     shift and go to state 28
+
+state 14
+
+    (3) expression -> expression TIMES . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression POWER expression
+    (6) expression -> . FRACTION LBRACE expression RBRACE LBRACE expression RBRACE
+    (7) expression -> . SQRT grouping
+    (8) expression -> . SIN grouping
+    (9) expression -> . COS grouping
+    (10) expression -> . TAN grouping
+    (11) expression -> . LOG grouping
+    (12) expression -> . EXP grouping
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . LPAREN expression RPAREN
+
+    FRACTION        shift and go to state 2
+    SQRT            shift and go to state 3
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    EXP             shift and go to state 8
+    NUMBER          shift and go to state 9
+    NAME            shift and go to state 10
+    LPAREN          shift and go to state 11
+
+    expression                     shift and go to state 29
+
+state 15
+
+    (4) expression -> expression DIVIDE . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression POWER expression
+    (6) expression -> . FRACTION LBRACE expression RBRACE LBRACE expression RBRACE
+    (7) expression -> . SQRT grouping
+    (8) expression -> . SIN grouping
+    (9) expression -> . COS grouping
+    (10) expression -> . TAN grouping
+    (11) expression -> . LOG grouping
+    (12) expression -> . EXP grouping
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . LPAREN expression RPAREN
+
+    FRACTION        shift and go to state 2
+    SQRT            shift and go to state 3
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    EXP             shift and go to state 8
+    NUMBER          shift and go to state 9
+    NAME            shift and go to state 10
+    LPAREN          shift and go to state 11
+
+    expression                     shift and go to state 30
+
+state 16
+
+    (5) expression -> expression POWER . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression POWER expression
+    (6) expression -> . FRACTION LBRACE expression RBRACE LBRACE expression RBRACE
+    (7) expression -> . SQRT grouping
+    (8) expression -> . SIN grouping
+    (9) expression -> . COS grouping
+    (10) expression -> . TAN grouping
+    (11) expression -> . LOG grouping
+    (12) expression -> . EXP grouping
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . LPAREN expression RPAREN
+
+    FRACTION        shift and go to state 2
+    SQRT            shift and go to state 3
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    EXP             shift and go to state 8
+    NUMBER          shift and go to state 9
+    NAME            shift and go to state 10
+    LPAREN          shift and go to state 11
+
+    expression                     shift and go to state 31
+
+state 17
+
+    (6) expression -> FRACTION LBRACE . expression RBRACE LBRACE expression RBRACE
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression POWER expression
+    (6) expression -> . FRACTION LBRACE expression RBRACE LBRACE expression RBRACE
+    (7) expression -> . SQRT grouping
+    (8) expression -> . SIN grouping
+    (9) expression -> . COS grouping
+    (10) expression -> . TAN grouping
+    (11) expression -> . LOG grouping
+    (12) expression -> . EXP grouping
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . LPAREN expression RPAREN
+
+    FRACTION        shift and go to state 2
+    SQRT            shift and go to state 3
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    EXP             shift and go to state 8
+    NUMBER          shift and go to state 9
+    NAME            shift and go to state 10
+    LPAREN          shift and go to state 11
+
+    expression                     shift and go to state 32
+
+state 18
+
+    (7) expression -> SQRT grouping .
+
+    PLUS            reduce using rule 7 (expression -> SQRT grouping .)
+    MINUS           reduce using rule 7 (expression -> SQRT grouping .)
+    TIMES           reduce using rule 7 (expression -> SQRT grouping .)
+    DIVIDE          reduce using rule 7 (expression -> SQRT grouping .)
+    POWER           reduce using rule 7 (expression -> SQRT grouping .)
+    $end            reduce using rule 7 (expression -> SQRT grouping .)
+    RPAREN          reduce using rule 7 (expression -> SQRT grouping .)
+    RBRACE          reduce using rule 7 (expression -> SQRT grouping .)
+
+
+state 19
+
+    (13) grouping -> LBRACE . expression RBRACE
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression POWER expression
+    (6) expression -> . FRACTION LBRACE expression RBRACE LBRACE expression RBRACE
+    (7) expression -> . SQRT grouping
+    (8) expression -> . SIN grouping
+    (9) expression -> . COS grouping
+    (10) expression -> . TAN grouping
+    (11) expression -> . LOG grouping
+    (12) expression -> . EXP grouping
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . LPAREN expression RPAREN
+
+    FRACTION        shift and go to state 2
+    SQRT            shift and go to state 3
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    EXP             shift and go to state 8
+    NUMBER          shift and go to state 9
+    NAME            shift and go to state 10
+    LPAREN          shift and go to state 11
+
+    expression                     shift and go to state 33
+
+state 20
+
+    (14) grouping -> LPAREN . expression RPAREN
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression POWER expression
+    (6) expression -> . FRACTION LBRACE expression RBRACE LBRACE expression RBRACE
+    (7) expression -> . SQRT grouping
+    (8) expression -> . SIN grouping
+    (9) expression -> . COS grouping
+    (10) expression -> . TAN grouping
+    (11) expression -> . LOG grouping
+    (12) expression -> . EXP grouping
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . LPAREN expression RPAREN
+
+    FRACTION        shift and go to state 2
+    SQRT            shift and go to state 3
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    EXP             shift and go to state 8
+    NUMBER          shift and go to state 9
+    NAME            shift and go to state 10
+    LPAREN          shift and go to state 11
+
+    expression                     shift and go to state 34
+
+state 21
+
+    (8) expression -> SIN grouping .
+
+    PLUS            reduce using rule 8 (expression -> SIN grouping .)
+    MINUS           reduce using rule 8 (expression -> SIN grouping .)
+    TIMES           reduce using rule 8 (expression -> SIN grouping .)
+    DIVIDE          reduce using rule 8 (expression -> SIN grouping .)
+    POWER           reduce using rule 8 (expression -> SIN grouping .)
+    $end            reduce using rule 8 (expression -> SIN grouping .)
+    RPAREN          reduce using rule 8 (expression -> SIN grouping .)
+    RBRACE          reduce using rule 8 (expression -> SIN grouping .)
+
+
+state 22
+
+    (9) expression -> COS grouping .
+
+    PLUS            reduce using rule 9 (expression -> COS grouping .)
+    MINUS           reduce using rule 9 (expression -> COS grouping .)
+    TIMES           reduce using rule 9 (expression -> COS grouping .)
+    DIVIDE          reduce using rule 9 (expression -> COS grouping .)
+    POWER           reduce using rule 9 (expression -> COS grouping .)
+    $end            reduce using rule 9 (expression -> COS grouping .)
+    RPAREN          reduce using rule 9 (expression -> COS grouping .)
+    RBRACE          reduce using rule 9 (expression -> COS grouping .)
+
+
+state 23
+
+    (10) expression -> TAN grouping .
+
+    PLUS            reduce using rule 10 (expression -> TAN grouping .)
+    MINUS           reduce using rule 10 (expression -> TAN grouping .)
+    TIMES           reduce using rule 10 (expression -> TAN grouping .)
+    DIVIDE          reduce using rule 10 (expression -> TAN grouping .)
+    POWER           reduce using rule 10 (expression -> TAN grouping .)
+    $end            reduce using rule 10 (expression -> TAN grouping .)
+    RPAREN          reduce using rule 10 (expression -> TAN grouping .)
+    RBRACE          reduce using rule 10 (expression -> TAN grouping .)
+
+
+state 24
+
+    (11) expression -> LOG grouping .
+
+    PLUS            reduce using rule 11 (expression -> LOG grouping .)
+    MINUS           reduce using rule 11 (expression -> LOG grouping .)
+    TIMES           reduce using rule 11 (expression -> LOG grouping .)
+    DIVIDE          reduce using rule 11 (expression -> LOG grouping .)
+    POWER           reduce using rule 11 (expression -> LOG grouping .)
+    $end            reduce using rule 11 (expression -> LOG grouping .)
+    RPAREN          reduce using rule 11 (expression -> LOG grouping .)
+    RBRACE          reduce using rule 11 (expression -> LOG grouping .)
+
+
+state 25
+
+    (12) expression -> EXP grouping .
+
+    PLUS            reduce using rule 12 (expression -> EXP grouping .)
+    MINUS           reduce using rule 12 (expression -> EXP grouping .)
+    TIMES           reduce using rule 12 (expression -> EXP grouping .)
+    DIVIDE          reduce using rule 12 (expression -> EXP grouping .)
+    POWER           reduce using rule 12 (expression -> EXP grouping .)
+    $end            reduce using rule 12 (expression -> EXP grouping .)
+    RPAREN          reduce using rule 12 (expression -> EXP grouping .)
+    RBRACE          reduce using rule 12 (expression -> EXP grouping .)
+
+
+state 26
+
+    (17) expression -> LPAREN expression . RPAREN
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . POWER expression
+
+    RPAREN          shift and go to state 35
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    POWER           shift and go to state 16
+
+
+state 27
+
+    (1) expression -> expression PLUS expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . POWER expression
+
+    PLUS            reduce using rule 1 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 1 (expression -> expression PLUS expression .)
+    $end            reduce using rule 1 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 1 (expression -> expression PLUS expression .)
+    RBRACE          reduce using rule 1 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    POWER           shift and go to state 16
+
+  ! TIMES           [ reduce using rule 1 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 1 (expression -> expression PLUS expression .) ]
+  ! POWER           [ reduce using rule 1 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 12 ]
+  ! MINUS           [ shift and go to state 13 ]
+
+
+state 28
+
+    (2) expression -> expression MINUS expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . POWER expression
+
+    PLUS            reduce using rule 2 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 2 (expression -> expression MINUS expression .)
+    $end            reduce using rule 2 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 2 (expression -> expression MINUS expression .)
+    RBRACE          reduce using rule 2 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    POWER           shift and go to state 16
+
+  ! TIMES           [ reduce using rule 2 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 2 (expression -> expression MINUS expression .) ]
+  ! POWER           [ reduce using rule 2 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 12 ]
+  ! MINUS           [ shift and go to state 13 ]
+
+
+state 29
+
+    (3) expression -> expression TIMES expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . POWER expression
+
+    PLUS            reduce using rule 3 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 3 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 3 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 3 (expression -> expression TIMES expression .)
+    $end            reduce using rule 3 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 3 (expression -> expression TIMES expression .)
+    RBRACE          reduce using rule 3 (expression -> expression TIMES expression .)
+    POWER           shift and go to state 16
+
+  ! POWER           [ reduce using rule 3 (expression -> expression TIMES expression .) ]
+  ! PLUS            [ shift and go to state 12 ]
+  ! MINUS           [ shift and go to state 13 ]
+  ! TIMES           [ shift and go to state 14 ]
+  ! DIVIDE          [ shift and go to state 15 ]
+
+
+state 30
+
+    (4) expression -> expression DIVIDE expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . POWER expression
+
+    PLUS            reduce using rule 4 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 4 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 4 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 4 (expression -> expression DIVIDE expression .)
+    $end            reduce using rule 4 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 4 (expression -> expression DIVIDE expression .)
+    RBRACE          reduce using rule 4 (expression -> expression DIVIDE expression .)
+    POWER           shift and go to state 16
+
+  ! POWER           [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
+  ! PLUS            [ shift and go to state 12 ]
+  ! MINUS           [ shift and go to state 13 ]
+  ! TIMES           [ shift and go to state 14 ]
+  ! DIVIDE          [ shift and go to state 15 ]
+
+
+state 31
+
+    (5) expression -> expression POWER expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . POWER expression
+
+    PLUS            reduce using rule 5 (expression -> expression POWER expression .)
+    MINUS           reduce using rule 5 (expression -> expression POWER expression .)
+    TIMES           reduce using rule 5 (expression -> expression POWER expression .)
+    DIVIDE          reduce using rule 5 (expression -> expression POWER expression .)
+    POWER           reduce using rule 5 (expression -> expression POWER expression .)
+    $end            reduce using rule 5 (expression -> expression POWER expression .)
+    RPAREN          reduce using rule 5 (expression -> expression POWER expression .)
+    RBRACE          reduce using rule 5 (expression -> expression POWER expression .)
+
+  ! PLUS            [ shift and go to state 12 ]
+  ! MINUS           [ shift and go to state 13 ]
+  ! TIMES           [ shift and go to state 14 ]
+  ! DIVIDE          [ shift and go to state 15 ]
+  ! POWER           [ shift and go to state 16 ]
+
+
+state 32
+
+    (6) expression -> FRACTION LBRACE expression . RBRACE LBRACE expression RBRACE
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . POWER expression
+
+    RBRACE          shift and go to state 36
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    POWER           shift and go to state 16
+
+
+state 33
+
+    (13) grouping -> LBRACE expression . RBRACE
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . POWER expression
+
+    RBRACE          shift and go to state 37
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    POWER           shift and go to state 16
+
+
+state 34
+
+    (14) grouping -> LPAREN expression . RPAREN
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . POWER expression
+
+    RPAREN          shift and go to state 38
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    POWER           shift and go to state 16
+
+
+state 35
+
+    (17) expression -> LPAREN expression RPAREN .
+
+    PLUS            reduce using rule 17 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 17 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 17 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 17 (expression -> LPAREN expression RPAREN .)
+    POWER           reduce using rule 17 (expression -> LPAREN expression RPAREN .)
+    $end            reduce using rule 17 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 17 (expression -> LPAREN expression RPAREN .)
+    RBRACE          reduce using rule 17 (expression -> LPAREN expression RPAREN .)
+
+
+state 36
+
+    (6) expression -> FRACTION LBRACE expression RBRACE . LBRACE expression RBRACE
+
+    LBRACE          shift and go to state 39
+
+
+state 37
+
+    (13) grouping -> LBRACE expression RBRACE .
+
+    PLUS            reduce using rule 13 (grouping -> LBRACE expression RBRACE .)
+    MINUS           reduce using rule 13 (grouping -> LBRACE expression RBRACE .)
+    TIMES           reduce using rule 13 (grouping -> LBRACE expression RBRACE .)
+    DIVIDE          reduce using rule 13 (grouping -> LBRACE expression RBRACE .)
+    POWER           reduce using rule 13 (grouping -> LBRACE expression RBRACE .)
+    $end            reduce using rule 13 (grouping -> LBRACE expression RBRACE .)
+    RPAREN          reduce using rule 13 (grouping -> LBRACE expression RBRACE .)
+    RBRACE          reduce using rule 13 (grouping -> LBRACE expression RBRACE .)
+
+
+state 38
+
+    (14) grouping -> LPAREN expression RPAREN .
+
+    PLUS            reduce using rule 14 (grouping -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 14 (grouping -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 14 (grouping -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 14 (grouping -> LPAREN expression RPAREN .)
+    POWER           reduce using rule 14 (grouping -> LPAREN expression RPAREN .)
+    $end            reduce using rule 14 (grouping -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 14 (grouping -> LPAREN expression RPAREN .)
+    RBRACE          reduce using rule 14 (grouping -> LPAREN expression RPAREN .)
+
+
+state 39
+
+    (6) expression -> FRACTION LBRACE expression RBRACE LBRACE . expression RBRACE
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression POWER expression
+    (6) expression -> . FRACTION LBRACE expression RBRACE LBRACE expression RBRACE
+    (7) expression -> . SQRT grouping
+    (8) expression -> . SIN grouping
+    (9) expression -> . COS grouping
+    (10) expression -> . TAN grouping
+    (11) expression -> . LOG grouping
+    (12) expression -> . EXP grouping
+    (15) expression -> . NUMBER
+    (16) expression -> . NAME
+    (17) expression -> . LPAREN expression RPAREN
+
+    FRACTION        shift and go to state 2
+    SQRT            shift and go to state 3
+    SIN             shift and go to state 4
+    COS             shift and go to state 5
+    TAN             shift and go to state 6
+    LOG             shift and go to state 7
+    EXP             shift and go to state 8
+    NUMBER          shift and go to state 9
+    NAME            shift and go to state 10
+    LPAREN          shift and go to state 11
+
+    expression                     shift and go to state 40
+
+state 40
+
+    (6) expression -> FRACTION LBRACE expression RBRACE LBRACE expression . RBRACE
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . POWER expression
+
+    RBRACE          shift and go to state 41
+    PLUS            shift and go to state 12
+    MINUS           shift and go to state 13
+    TIMES           shift and go to state 14
+    DIVIDE          shift and go to state 15
+    POWER           shift and go to state 16
+
+
+state 41
+
+    (6) expression -> FRACTION LBRACE expression RBRACE LBRACE expression RBRACE .
+
+    PLUS            reduce using rule 6 (expression -> FRACTION LBRACE expression RBRACE LBRACE expression RBRACE .)
+    MINUS           reduce using rule 6 (expression -> FRACTION LBRACE expression RBRACE LBRACE expression RBRACE .)
+    TIMES           reduce using rule 6 (expression -> FRACTION LBRACE expression RBRACE LBRACE expression RBRACE .)
+    DIVIDE          reduce using rule 6 (expression -> FRACTION LBRACE expression RBRACE LBRACE expression RBRACE .)
+    POWER           reduce using rule 6 (expression -> FRACTION LBRACE expression RBRACE LBRACE expression RBRACE .)
+    $end            reduce using rule 6 (expression -> FRACTION LBRACE expression RBRACE LBRACE expression RBRACE .)
+    RPAREN          reduce using rule 6 (expression -> FRACTION LBRACE expression RBRACE LBRACE expression RBRACE .)
+    RBRACE          reduce using rule 6 (expression -> FRACTION LBRACE expression RBRACE LBRACE expression RBRACE .)
+
