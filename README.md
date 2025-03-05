@@ -56,3 +56,6 @@ python test.py
 - Se asume que todas las variables (`x`, `y`, `a`, `b`, etc.) son nombres válidos en Python.
 - La función `math.log(x)` usa el logaritmo natural (`ln` en matemáticas). Para `log10`, usa `math.log10(x)`.
 
+## Referencia
+Basado en el proyecto: https://github.com/ProgLang-2021-1/DSL
+
